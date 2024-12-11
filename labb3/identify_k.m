@@ -16,12 +16,12 @@ plot(out.p)
 title('Position')
 legend('x','y','z')
 %% Using Toolbox, estimating from accelerometer.
-%dat1 = TODO;
+dat1 = iddata(out.acc.data(:,3)+g,4*out.Omega.data(:,1),inner_h);
 dat2 = iddata(out.acc.data(:,3)+g,4*out.Omega.data(:,1).^2,inner_h);
-%dat3 = TODO;
-%sys1 =TODO
+dat3 = iddata(out.acc.data(:,3)+g,4*out.Omega.data(:,1).^3,inner_h);
+sys1 = procest(dat1,'p0')
 sys2 = procest(dat2,'p0') %p0 means zero poles
-%sys3 =TODO
+sys3 = procest(dat3,'p0')
 figure(2)
 clf
 subplot(3,1,1)
@@ -31,5 +31,5 @@ compare(dat2,sys2)
 subplot(3,1,3)
 compare(dat3,sys3)
 
-%k_est = TODO;
+k_est = sys2.Kp*m
 k

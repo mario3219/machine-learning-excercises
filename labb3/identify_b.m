@@ -1,16 +1,18 @@
+clear
+
 run('init_quadcopter_model')
 run('init_quadcopter_states')
 run('init_noise_levels')
 addpath ('models')
 %%
-c = 1 %TODO change
-%Omega1 = TODO, calculate as a function of c
+c = 1.5; %TODO change
+Omega1 = sqrt( (m*g)/(2*k*(1+c^2)) );%TODO, calculate as a function of c
 Omega2 = c*Omega1;
 Omega = [Omega1 Omega2 Omega1 Omega2];
 Omega_in.time = (0:inner_h:2)';
 nbr_samples = length(Omega_in.time);
 Omega_in.signals.values = zeros(nbr_samples,4);
-segments = 1; %TODO change to something better
+segments = 10; %TODO change to something better
 segment_size = floor(nbr_samples/segments)
 switch_time = [floor(segment_size/2):segment_size:nbr_samples, nbr_samples];
 
@@ -53,5 +55,5 @@ figure(2)
 clf
 compare(dat,sys)
 
-b_est = 1 % TODO
+b_est = sys.Kp*I(3) % TODO
 b

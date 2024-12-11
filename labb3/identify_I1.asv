@@ -7,7 +7,7 @@ addpath ('models')
 %%
 
 Omega_H = sqrt( (m*g)/(4*k) ); %TODO
-c = 1.2; %TODO
+c = 1; %TODO
 Omega2 = sqrt( (2*Omega_H^2)/(1+c^2) ); %TODO
 Omega4 = c*Omega2;
 Omega_in.time = (0:inner_h:2)';
