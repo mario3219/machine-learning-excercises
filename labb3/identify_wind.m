@@ -12,15 +12,15 @@ disp('starting sim')
 out = sim('closed_loop','StopTime', '50')
 disp('done sim')
 %% From wind
-R = 6;%TODO might be needed to change
+R = 7;%TODO might be needed to change
 y_acc = out.acc.data(:,2);
 Ft = out.T.data.*sin(out.eta.data(:,1));
 wind_force_est = m*y_acc-Ft;
 dat = iddata(wind_force_est(1:R:end),[],sample_time*R);
 opts = armaxOptions;
-nb = 2
-nc = 2
-armax2 = armax(dat,[nb nc]) %TODO select suitable model structure
+na = 2
+nc = 1
+armax2 = armax(dat,[na nc]) %TODO select suitable model structure
 figure(1)
 clf
 compare(dat,armax2,3)

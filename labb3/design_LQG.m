@@ -14,8 +14,8 @@ k2 = -g;
 
 windamp = m;
 
-w0_wind = 1; % TODO, change this
-epsilon = 1; % TODO, change this
+w0_wind = 0.9802; % TODO, change this
+epsilon = 0.0295; % TODO, change this
 
 A1 = [0 0 0 0 0 0 ; 1 0 0 0 0 0 ; 0 k2 0 0 0 1; 0 0 1 0 0 0 ; 0 0 0 0 -2*w0_wind*epsilon -w0_wind^2; 0 0 0 0 1 0 ];
 B1 = [k1 ; 0 ; 0 ; 0 ; 0 ; 0];
