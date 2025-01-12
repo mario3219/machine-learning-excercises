@@ -22,7 +22,7 @@ G = 0.15*(1+z^(-1))/(1-1.6*z^(-1) + 0.9*z^(-2));
 e = randn(N,1);  
 
 
-y = lsim(G,u,t) + 0.001*e; % try different noise levels here 
+y = lsim(G,u,t) + 0.000*e; % try different noise levels here 
 figure(1)
 subplot(211)
 plot(t,y,'linewidth',1.5)

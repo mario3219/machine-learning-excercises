@@ -8,12 +8,12 @@ close all; clear
 z = tf('z',1);
 G = (z+0.5)/(z^2 - 1.5*z + 0.7);
 
-N = 1000;
+N = 2000;
 u1 = randn(N,1);
 u2 = filter(1,[1 -1 0.99],u1);
 
 M = 50;
-NA = 0;    % try  NA =1,2,5
+NA = 2;    % try  NA =1,2,5
 y1 = lsim(G,u1);
 y2 = lsim(G,u2);
 ir = impulse(G,M);

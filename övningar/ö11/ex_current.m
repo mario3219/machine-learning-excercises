@@ -1,4 +1,4 @@
-close all; clear
+clear
 
 load current
 y = i4r;
@@ -39,7 +39,7 @@ R0 = R(1)
 figure(3)
 Nw = 1024; % nr of frequency points
 wv = linspace(0,pi/Ts,Nw);
-M = 200;
+M = 400;
 Phi = spa(z,M,wv);   % try different window widths M
 % Phi200 = spa(z,200,wv);
 % Phi600 = spa(z,600,wv);
